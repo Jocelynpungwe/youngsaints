@@ -16,11 +16,11 @@ const AboutPage = () => {
         <img src={aboutImg1} alt="picture of owners" />
         <article>
           <div className="title">
-            <h2>About Young Saints</h2>
+            <h2>About Yvng Saintss</h2>
             <div className="underline"></div>
           </div>
           <p>
-            Our vision at Young Saint is to become the epitome of urban fashion,
+            Our vision at Yvng Saints is to become the epitome of urban fashion,
             recognized globally for our fusion of street-inspired clothing with
             modern elegance. We aspire to be the go-to brand for individuals
             seeking not just trendy apparel but a lifestyle that celebrates
@@ -31,7 +31,7 @@ const AboutPage = () => {
           </p>
           <h4>Our mission</h4>
           <p>
-            Our vision at Young Saint is to become the epitome of urban fashion,
+            Our vision at Yvng Saints is to become the epitome of urban fashion,
             recognized globally for our fusion of street-inspired clothing with
             modern elegance. We aspire to be the go-to brand for individuals
             seeking not just trendy apparel but a lifestyle that celebrates
@@ -44,7 +44,7 @@ const AboutPage = () => {
         <article className="second-cont">
           <h4>Our story</h4>
           <p>
-            Our vision at Young Saint is to become the epitome of urban fashion,
+            Our vision at Yvng Saints is to become the epitome of urban fashion,
             recognized globally for our fusion of street-inspired clothing with
             modern elegance. We aspire to be the go-to brand for individuals
             seeking not just trendy apparel but a lifestyle that celebrates
@@ -55,7 +55,7 @@ const AboutPage = () => {
           </p>
           <h4>Brand Values</h4>
           <p>
-            Our vision at Young Saint is to become the epitome of urban fashion,
+            Our vision at Yvng Saints is to become the epitome of urban fashion,
             recognized globally for our fusion of street-inspired clothing with
             modern elegance. We aspire to be the go-to brand for individuals
             seeking not just trendy apparel but a lifestyle that celebrates
@@ -74,7 +74,7 @@ const AboutPage = () => {
         <article className="three-cont">
           <h4>Future Vision</h4>
           <p>
-            Our vision at Young Saint is to become the epitome of urban fashion,
+            Our vision at Yvng Saints is to become the epitome of urban fashion,
             recognized globally for our fusion of street-inspired clothing with
             modern elegance. We aspire to be the go-to brand for individuals
             seeking not just trendy apparel but a lifestyle that celebrates
@@ -85,7 +85,7 @@ const AboutPage = () => {
           </p>
           <h4>Connect on Social Media</h4>
           <p>
-            Our vision at Young Saint is to become the epitome of urban fashion,
+            Our vision at Yvng Saints is to become the epitome of urban fashion,
             recognized globally for our fusion of street-inspired clothing with
             modern elegance. We aspire to be the go-to brand for individuals
             seeking not just trendy apparel but a lifestyle that celebrates

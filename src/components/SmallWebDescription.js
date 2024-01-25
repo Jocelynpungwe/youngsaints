@@ -12,14 +12,14 @@ const SmallWebDescription = () => {
             Creators of{' '}
             <span className="span-line">
               {' '}
-              <span className="span-color">Young Saints</span> Brand
+              <span className="span-color">Yvng Saintss</span> Brand
             </span>
           </h2>
           <p>
             Two young ladies seeking to contribute to thier community in a way
             that they find effective, bold, and engaging! Fashion is a global
             platform that people from every race, culture and religion can
-            connect! That is what we seek to achieve as Young Saints. We are
+            connect! That is what we seek to achieve as Yvng Saintss. We are
             young, valued and gifted individuals and we are determined to bring
             these values to shine in every generation that wears any of our
             fashion creations

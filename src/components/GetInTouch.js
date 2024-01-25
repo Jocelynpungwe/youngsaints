@@ -15,7 +15,7 @@ const GetInTouch = () => {
           <p className="disc-header">
             Give us a call or Reach out to us via WhatsApp at
           </p>
-          <p>+123456789 Young Saint</p>
+          <p>+123456789 Yvng Saints</p>
           <p>+123456789 Grace</p>
           <p>+123456789 Ray</p>
         </article>
@@ -30,7 +30,7 @@ const GetInTouch = () => {
         <article className="service">
           <span className="icon">{<FaInstagram />}</span>
           <h4>Follow</h4>
-          <p>Young Saint Instagram</p>
+          <p>Yvng Saints Instagram</p>
           <a href="https://www.instagram.com/yvng_saints/">
             <img className="ig-image" src={instagramImage} alt="" />
           </a>

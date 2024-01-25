@@ -9,7 +9,7 @@ const Hero = () => {
       <Wrapper className="section-center">
         <article className="content">
           <div className="container">
-            <h1>Welcome to Young Saint</h1>
+            <h1>Welcome to Yvng Saints</h1>
             <p className="hero-product">Unleash Your Style</p>
             <p className="hero-description">
               Elevate your look with our signature hoodies and caps. Born from

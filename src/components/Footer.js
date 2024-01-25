@@ -26,7 +26,7 @@ const Footer = () => {
             </div>
           </div>
           <p className="footer-paragraph">
-            Empower your style with Young Saints, where fashion meets
+            Empower your style with Yvng Saintss, where fashion meets
             individuality. Discover curated collections that blend contemporary
             trends with timeless elegance. Elevate your wardrobe with Young
             Saints – where passion meets fashion.

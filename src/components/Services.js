@@ -13,13 +13,13 @@ const Services = () => {
           <div>
             <img src={logo} alt="logo" />
             <p>
-              Young Saint, born from the vibrant streets and the spirit of
+              Yvng Saints, born from the vibrant streets and the spirit of
               contemporary urban culture, embodies the essence of youthful
               expression. Our brand celebrates individuality, blending
               street-inspired fashion with a touch of modern elegance. Each
               piece, from our signature hoodies to our stylish caps, reflects
               the dynamic energy and boldness of today's trendsetters. With a
-              commitment to quality, comfort, and design, Young Saint embraces
+              commitment to quality, comfort, and design, Yvng Saints embraces
               the fusion of street style and sophistication, empowering the
               modern-day saints to make a statement while staying true to their
               authentic selves.
