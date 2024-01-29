@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import { useProductsContext } from '../context/products_context'
 import { single_product_url as url } from '../utils/constants'
@@ -41,6 +41,8 @@ const SingleProductPage = () => {
     images,
   } = newData
 
+  const [main, setMain] = useState(images[0])
+
   return (
     <Wrapper>
       <PageHero title={category} />
@@ -49,7 +51,7 @@ const SingleProductPage = () => {
           back to home
         </Link>
         <div className="product-center">
-          <ProductImages images={images} />
+          <ProductImages setMain={setMain} main={main} images={images} />
           <section className="content">
             <h2>{name}</h2>
             <Stars stars={stars} reviews={reviews} />
@@ -62,14 +64,14 @@ const SingleProductPage = () => {
 
             <p className="info">
               <span>Brand : </span>
-              Yvng Saintss {category}
+              yvng saints {category}
             </p>
             <hr />
             {stock > 0 && <AddToCart product={newData} />}
           </section>
         </div>
 
-        <FeaturedProducts />
+        <FeaturedProducts setMain={setMain} />
       </div>
     </Wrapper>
   )

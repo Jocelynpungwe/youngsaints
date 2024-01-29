@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-const ProductImages = ({ images }) => {
-  const [main, setMain] = useState(images[0])
+import { data } from '../utils/constants'
 
+const ProductImages = ({ images, setMain, main }) => {
   return (
     <Wrapper>
       <img src={main} alt="" className="main " />

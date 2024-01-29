@@ -26,10 +26,7 @@ const Footer = () => {
             </div>
           </div>
           <p className="footer-paragraph">
-            Empower your style with Yvng Saintss, where fashion meets
-            individuality. Discover curated collections that blend contemporary
-            trends with timeless elegance. Elevate your wardrobe with Young
-            Saints – where passion meets fashion.
+            Empower your style with YVNG Saints - Where fashion meets faith.
           </p>
           <div className="copyright-container">
             <p className="copyright">Copyright 2020. All Rights Reserved</p>

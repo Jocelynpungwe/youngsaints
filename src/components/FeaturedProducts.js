@@ -8,7 +8,7 @@ import Product from './Product'
 import ListView from './ListView'
 import { data } from '../utils/constants'
 
-const FeaturedProducts = () => {
+const FeaturedProducts = ({ setMain }) => {
   // const {
   //   products_loading: loading,
   //   products_error: error,
@@ -24,7 +24,7 @@ const FeaturedProducts = () => {
     <Wrapper className="section">
       <div className="section-center featured">
         {data.map((product) => {
-          return <Product key={product.id} {...product} />
+          return <Product setMain={setMain} key={product.id} {...product} />
         })}
       </div>
     </Wrapper>

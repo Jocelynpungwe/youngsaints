@@ -9,15 +9,15 @@ const Hero = () => {
       <Wrapper className="section-center">
         <article className="content">
           <div className="container">
-            <h1>Welcome to Yvng Saints</h1>
-            <p className="hero-product">Unleash Your Style</p>
+            <h1>Embrace Your Faith</h1>
+            <p className="hero-product">Elevate Your Style</p>
             <p className="hero-description">
-              Elevate your look with our signature hoodies and caps. Born from
-              the streets, crafted for the trendsetters. Join the league of
-              modern saints embracing the city vibe.
+              YVNG Saints Unveils a Collection Where Fashion Meets Faith.
+              Crafted for the Modern Believer. Explore Now for a Fusion of Faith
+              and Flair!
             </p>
-            <Link to="/1" className="btn primary-btn">
-              see product
+            <Link to="/3" className="btn primary-btn">
+              Explore Now
             </Link>
           </div>
         </article>

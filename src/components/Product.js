@@ -3,7 +3,16 @@ import styled from 'styled-components'
 import { formatPrice } from '../utils/helpers'
 import { FaSearch } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
-const Product = ({ id, images, name, price, category, description }) => {
+
+const Product = ({
+  id,
+  images,
+  name,
+  price,
+  category,
+  description,
+  setMain,
+}) => {
   return (
     <Wrapper>
       <div className="container">
@@ -12,7 +21,11 @@ const Product = ({ id, images, name, price, category, description }) => {
           <h4>{name}</h4>
           <h5 className="price">{formatPrice(price)}</h5>
           <p>{description.substring(0, 150)}...</p>
-          <Link to={`/${id}`} className="btn">
+          <Link
+            to={`/${id}`}
+            onClick={() => setMain(images[0])}
+            className="btn"
+          >
             Details
           </Link>
         </div>
