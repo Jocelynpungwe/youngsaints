@@ -62,7 +62,7 @@ export const data = [
     category: 'hoodies',
     description:
       'YVNG Saint Company presents a divine fusion of faith and fashion with our exclusive line of religious-themed hoodies. Embrace a unique blend of spirituality and streetwear as our meticulously designed hoodies seamlessly integrate sacred symbols and powerful motifs, creating a tangible expression of your unwavering devotion.',
-    stock: 2,
+    stock: 1,
     colors: ['black'],
     stars: 4.5,
     reviews: 23,
@@ -75,7 +75,7 @@ export const data = [
     category: 'caps',
     description:
       'YVNG Saint Company brings forth a collection of religious-inspired caps that transcend fashion, merging timeless spirituality with contemporary style. Each cap is a testament to faith, adorned with sacred symbols and meaningful designs, allowing you to carry your beliefs with you wherever you go.',
-    stock: 3,
+    stock: 2,
     colors: ['black'],
     stars: 4,
     reviews: 10,
@@ -84,7 +84,7 @@ export const data = [
     id: 3,
     images: [benny6, benny1, benny2, benny3, benny4, benny5],
     name: 'bennies',
-    price: 100,
+    price: 3500,
     category: 'bennies',
     description:
       'YVNG Saint Company introduces a divine touch to your winter essentials with our collection of religious-based beanies. Experience the warmth of faith as our beanies seamlessly blend religious symbols and meaningful motifs, creating a cozy yet powerful accessory for the devout.',

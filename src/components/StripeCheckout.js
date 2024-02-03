@@ -182,21 +182,29 @@ const CheckoutForm = () => {
             <article className="grand-total-container">
               <h4>GRAND TOTAL</h4>
               <div className="grand-total-product-container">
-                {cart.map((item) => {
+                {cart.map((item, index) => {
                   return (
-                    <div className="product-total-details">
+                    <div key={index} className="product-total-details">
                       <img className="img-total" src={item.image} />
                       <div>
-                        <p>{item.name}</p>
-                        <p>Price: {formatPrice(item.price)}</p>
-                        <p>Qty: {item.amount}</p>
+                        <p className="product-total-name">{item.name}</p>
+                        <p className="product-total-price-qty">
+                          Price: <span>{formatPrice(item.price)}</span>
+                        </p>
+                        <p className="product-total-price-qty">
+                          Qty: <span>{item.amount}</span>
+                        </p>
                       </div>
                     </div>
                   )
                 })}
               </div>
-              <p>Shipping Fee: {formatPrice(shipping_fee)}</p>
-              <p>FINAL PRICE: {formatPrice(finalPrice)}</p>
+              <p className="shipping-fee">
+                Shipping Fee: {formatPrice(shipping_fee)}
+              </p>
+              <p className="final-price">
+                FINAL PRICE: <span>{formatPrice(finalPrice)}</span>
+              </p>
             </article>
             <p>
               <strong>Invoice Will Be Emailed Shortly</strong>
@@ -316,16 +324,24 @@ const CheckoutForm = () => {
                   <div key={index} className="product-total-details">
                     <img className="img-total" src={item.image} />
                     <div>
-                      <p>{item.name}</p>
-                      <p>Price: {formatPrice(item.price)}</p>
-                      <p>Qty: {item.amount}</p>
+                      <p className="product-total-name">{item.name}</p>
+                      <p className="product-total-price-qty">
+                        Price: <span>{formatPrice(item.price)}</span>
+                      </p>
+                      <p className="product-total-price-qty">
+                        Qty: <span>{item.amount}</span>
+                      </p>
                     </div>
                   </div>
                 )
               })}
             </div>
-            <p>Shipping Fee: {formatPrice(shipping_fee)}</p>
-            <p>FINAL PRICE: {formatPrice(finalPrice)}</p>
+            <p className="shipping-fee">
+              Shipping Fee: {formatPrice(shipping_fee)}
+            </p>
+            <p className="final-price">
+              FINAL PRICE: <span>{formatPrice(finalPrice)}</span>
+            </p>
           </article>
 
           <CardElement
@@ -378,14 +394,42 @@ const Wrapper = styled.section`
     opacity: 0.1;
   }
 
+  .grand-total-container {
+    .shipping-fee {
+      font-size: 12px;
+      color: var(--secondy-chocolate);
+    }
+  }
+  .grand-total-container {
+    .final-price {
+      color: gray;
+      span {
+        color: var(--secondy-chocolate);
+      }
+    }
+  }
+
   .img-total {
-    width: 100px;
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
   }
 
   .product-total-details {
     display: flex;
     gap: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
+    .product-total-name {
+      font-size: 12px;
+      color: var(--secondy-chocolate);
+    }
+    .product-total-price-qty {
+      font-size: 10px;
+      color: var(--actual-black);
+      span {
+        color: var(--secondy-chocolate);
+      }
+    }
     p {
       margin-bottom: 5px;
     }
