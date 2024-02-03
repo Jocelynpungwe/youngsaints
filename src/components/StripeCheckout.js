@@ -214,165 +214,165 @@ const CheckoutForm = () => {
       )}
       <div className={succeeded ? 'backgroundOpacity' : ''}>
         <form id="payment-form" onSubmit={handleSubmit}>
-          <h3>BILLING DETAILS</h3>
-          <div className="grid-layout-container">
-            <div>
-              <label htmlFor="fullName">Name</label>
-              <input
-                type="text"
-                placeholder="Alexel Ward"
-                id="fullName"
-                name="fullName"
-                value={customerName.fullName}
-                onChange={changeCustomerName}
-                required
-              />
+          <div className="form-container">
+            <h3>BILLING DETAILS</h3>
+            <div className="grid-layout-container">
+              <div>
+                <label htmlFor="fullName">Name</label>
+                <input
+                  type="text"
+                  placeholder="Alexel Ward"
+                  id="fullName"
+                  name="fullName"
+                  value={customerName.fullName}
+                  onChange={changeCustomerName}
+                  required
+                />
+              </div>
+              <div>
+                <label htmlFor="email">Email Address</label>
+                <input
+                  type="email"
+                  placeholder="alexi@mail.com"
+                  id="email"
+                  name="email"
+                  value={customerName.email}
+                  onChange={changeCustomerName}
+                  required
+                />
+              </div>
+              <div>
+                <label htmlFor="phoneNumber">Phone Number</label>
+                <input
+                  type="number"
+                  placeholder="+1 202-555-0136"
+                  id="phoneNumber"
+                  name="phoneNumber"
+                  value={customerName.phoneNumber}
+                  onChange={changeCustomerName}
+                  required
+                />
+              </div>
             </div>
-            <div>
-              <label htmlFor="email">Email Address</label>
-              <input
-                type="email"
-                placeholder="alexi@mail.com"
-                id="email"
-                name="email"
-                value={customerName.email}
-                onChange={changeCustomerName}
-                required
-              />
+            {/* shipping */}
+            <h3>SHIPPING INFO</h3>
+            <div className="grid-layout-container">
+              <div className="form-address-container">
+                <label htmlFor="address">Your Address</label>
+                <input
+                  type="text"
+                  placeholder="1137 Williams Avenue"
+                  id="address"
+                  name="line1"
+                  value={billing.address.line1}
+                  onChange={changeBilling}
+                  required
+                />
+              </div>
+              <div>
+                <label>City</label>
+                <input
+                  type="text"
+                  placeholder="Ottawa"
+                  id="city"
+                  name="city"
+                  value={billing.address.city}
+                  onChange={changeBilling}
+                  required
+                />
+              </div>
+              <div>
+                <label>State</label>
+                <input
+                  type="text"
+                  placeholder="Ontario"
+                  id="city"
+                  name="state"
+                  value={billing.address.state}
+                  onChange={changeBilling}
+                  required
+                />
+              </div>
+              <div>
+                <label htmlFor="zipCode">ZIP Code</label>
+                <input
+                  type="text"
+                  placeholder="X28 4C9"
+                  id="zipCode"
+                  name="postal_code"
+                  value={billing.address.zipCode}
+                  onChange={changeBilling}
+                  required
+                />
+              </div>
+              <div>
+                <label htmlFor="country">Country</label>
+                <input
+                  type="text"
+                  placeholder="United State"
+                  id="country"
+                  name="country"
+                  value="Canada"
+                  required
+                />
+              </div>
             </div>
-            <div>
-              <label htmlFor="phoneNumber">Phone Number</label>
-              <input
-                type="number"
-                placeholder="+1 202-555-0136"
-                id="phoneNumber"
-                name="phoneNumber"
-                value={customerName.phoneNumber}
-                onChange={changeCustomerName}
-                required
-              />
-            </div>
-          </div>
-          {/* shipping */}
-          <h3>SHIPPING INFO</h3>
-          <div className="grid-layout-container">
-            <div className="form-address-container">
-              <label htmlFor="address">Your Address</label>
-              <input
-                type="text"
-                placeholder="1137 Williams Avenue"
-                id="address"
-                name="line1"
-                value={billing.address.line1}
-                onChange={changeBilling}
-                required
-              />
-            </div>
-            <div>
-              <label>City</label>
-              <input
-                type="text"
-                placeholder="Ottawa"
-                id="city"
-                name="city"
-                value={billing.address.city}
-                onChange={changeBilling}
-                required
-              />
-            </div>
-            <div>
-              <label>State</label>
-              <input
-                type="text"
-                placeholder="Ontario"
-                id="city"
-                name="state"
-                value={billing.address.state}
-                onChange={changeBilling}
-                required
-              />
-            </div>
-            <div>
-              <label htmlFor="zipCode">ZIP Code</label>
-              <input
-                type="text"
-                placeholder="X28 4C9"
-                id="zipCode"
-                name="postal_code"
-                value={billing.address.zipCode}
-                onChange={changeBilling}
-                required
-              />
-            </div>
-            <div>
-              <label htmlFor="country">Country</label>
-              <input
-                type="text"
-                placeholder="United State"
-                id="country"
-                name="country"
-                value="Canada"
-                required
-              />
-            </div>
-          </div>
-          <article className="grand-total-container">
-            <h4>GRAND TOTAL</h4>
-            <div className="grand-total-product-container">
-              {cart.map((item, index) => {
-                return (
-                  <div key={index} className="product-total-details">
-                    <img className="img-total" src={item.image} />
-                    <div>
-                      <p className="product-total-name">{item.name}</p>
-                      <p className="product-total-price-qty">
-                        Price: <span>{formatPrice(item.price)}</span>
-                      </p>
-                      <p className="product-total-price-qty">
-                        Qty: <span>{item.amount}</span>
-                      </p>
+            <article className="grand-total-container">
+              <h4>GRAND TOTAL</h4>
+              <div className="grand-total-product-container">
+                {cart.map((item, index) => {
+                  return (
+                    <div key={index} className="product-total-details">
+                      <img className="img-total" src={item.image} />
+                      <div>
+                        <p className="product-total-name">{item.name}</p>
+                        <p className="product-total-price-qty">
+                          Price: <span>{formatPrice(item.price)}</span>
+                        </p>
+                        <p className="product-total-price-qty">
+                          Qty: <span>{item.amount}</span>
+                        </p>
+                      </div>
                     </div>
-                  </div>
-                )
-              })}
-            </div>
-            <p className="shipping-fee">
-              Shipping Fee: {formatPrice(shipping_fee)}
+                  )
+                })}
+              </div>
+              <p className="shipping-fee">
+                Shipping Fee: {formatPrice(shipping_fee)}
+              </p>
+              <p className="final-price">
+                FINAL PRICE: <span>{formatPrice(finalPrice)}</span>
+              </p>
+            </article>
+          </div>
+          <div className="card-element-container">
+            <CardElement
+              id="card-element"
+              options={cardStyle}
+              onChange={handleChange}
+            />
+            <button disabled={processing || disabled || succeeded} id="submit">
+              <span id="button-text">
+                {processing ? (
+                  <div className="spinner" id="spinner"></div>
+                ) : (
+                  'Pay'
+                )}
+              </span>
+            </button>
+            {/* Show any error that happens when processing the payment */}
+            {error && (
+              <div className="card-error" role="alert" style={{ color: 'red' }}>
+                {error}
+              </div>
+            )}
+            {/* Show a success message upon completion */}
+            <p
+              className={succeeded ? 'result-message' : 'result-message hidden'}
+            >
+              Payment succeeded,
             </p>
-            <p className="final-price">
-              FINAL PRICE: <span>{formatPrice(finalPrice)}</span>
-            </p>
-          </article>
-
-          <CardElement
-            id="card-element"
-            options={cardStyle}
-            onChange={handleChange}
-          />
-          <button disabled={processing || disabled || succeeded} id="submit">
-            <span id="button-text">
-              {processing ? (
-                <div className="spinner" id="spinner"></div>
-              ) : (
-                'Pay'
-              )}
-            </span>
-          </button>
-          {/* Show any error that happens when processing the payment */}
-          {error && (
-            <div className="card-error" role="alert">
-              {error}
-            </div>
-          )}
-          {/* Show a success message upon completion */}
-          <p className={succeeded ? 'result-message' : 'result-message hidden'}>
-            Payment succeeded, see the result in your
-            <a href={`https://dashboard.stripe.com/test/payments`}>
-              {' '}
-              Stripe dashboard.
-            </a>{' '}
-            Refresh the page to pay again.
-          </p>
+          </div>
         </form>
       </div>
     </>
@@ -444,6 +444,14 @@ const Wrapper = styled.section`
     background-color: rgba(0, 0, 0, 0.5);
   }
 
+  .form-container {
+    padding: 40px 40px 0 40px;
+  }
+
+  .card-element-container {
+    padding: 0 10px 40px 10px;
+  }
+
   form {
     width: 90vw;
     align-self: center;
@@ -451,7 +459,6 @@ const Wrapper = styled.section`
       0px 2px 5px 0px rgba(50, 50, 93, 0.1),
       0px 1px 1.5px 0px rgba(0, 0, 0, 0.07);
     border-radius: 7px;
-    padding: 40px;
   }
   input {
     border-radius: 6px;
