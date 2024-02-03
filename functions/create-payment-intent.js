@@ -1,6 +1,8 @@
 const dotenv = require('dotenv')
 dotenv.config()
+
 const stripe = require('stripe')(process.env.REACT_APP_STRIPE_SECRET_KEY)
+
 exports.handler = async function (event, context) {
   const { cart, shipping_fee, total_amount } = JSON.parse(event.body)
 
@@ -14,7 +16,7 @@ exports.handler = async function (event, context) {
     // Create a PaymentIntent with the order amount and currency
     const paymentIntent = await stripe.paymentIntents.create({
       amount: calculateOrderAmount(),
-      currency: 'usd',
+      currency: 'cad',
     })
     return {
       statusCode: 200,

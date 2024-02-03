@@ -12,19 +12,22 @@ import { useCartContext } from '../context/cart_context'
 import { useUserContext } from '../context/user_context'
 import { formatPrice } from '../utils/helpers'
 import { useNavigate } from 'react-router-dom'
-import { BsDisplay } from 'react-icons/bs'
 
 const promise = loadStripe(process.env.REACT_APP_STRIPE_PUBLIC_KEY)
 
-const initialState = {
+const initialCustumerState = {
   fullName: '',
   email: '',
   phoneNumber: '',
-  address: '',
-  zipCode: '',
-  city: '',
-  country: '',
-  paymenetMethod: '',
+}
+
+const initialBilling = {
+  address: {
+    line1: '',
+    city: '',
+    state: '',
+    postal_code: '',
+  },
 }
 
 const CheckoutForm = () => {
@@ -39,7 +42,33 @@ const CheckoutForm = () => {
   const stripe = useStripe()
   const elements = useElements()
 
-  const [billing, setBilling] = useState(initialState)
+  const [customerName, setCustomerName] = useState(initialCustumerState)
+  const [billing, setBilling] = useState(initialBilling)
+  const finalPrice = total_amount + shipping_fee
+
+  const orderFunction = () => {
+    let theProduct = ''
+    cart.forEach((element, index) => {
+      const { name, color, amount } = element
+      theProduct += `ORDER ${
+        index + 1
+      }: ${name}  COLOR: ${color} QTY: ${amount} || `
+    })
+
+    return theProduct
+  }
+
+  function changeCustomerName(e) {
+    const name = e.target.name
+    const value = e.target.value
+
+    setCustomerName((prevData) => {
+      return {
+        ...prevData,
+        [name]: value,
+      }
+    })
+  }
 
   function changeBilling(e) {
     const name = e.target.name
@@ -47,8 +76,10 @@ const CheckoutForm = () => {
 
     setBilling((prevData) => {
       return {
-        ...prevData,
-        [name]: value,
+        address: {
+          ...prevData.address,
+          [name]: value,
+        },
       }
     })
   }
@@ -104,6 +135,15 @@ const CheckoutForm = () => {
       payment_method: {
         card: elements.getElement(CardElement),
       },
+      receipt_email: customerName.email,
+      shipping: {
+        name: `${customerName.fullName}`,
+        phone: `${customerName.phoneNumber}`,
+        carrier: `${orderFunction()}`,
+        address: {
+          ...billing.address,
+        },
+      },
     })
     if (payload.error) {
       setError(`Payment failed ${payload.error.message}`)
@@ -119,43 +159,53 @@ const CheckoutForm = () => {
     }
   }
   return (
-    <div>
-      {succeeded ? (
-        <article className="success-container">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="64"
-            height="64"
-            viewBox="0 0 64 64"
-            fill="none"
-          >
-            <circle cx="32" cy="32" r="32" fill="#D87D4A" />
-            <path
-              d="M20.7539 33.3328L27.5054 40.0843L43.3085 24.2812"
-              stroke="white"
-              stroke-width="4"
-            />
-          </svg>
-          <h4 className="thank-message">THANK YOU FOR YOUR ORDER</h4>
-          <p className="result-message">
-            Payment succeeded, see the result in your
-            <a href={`https://dashboard.stripe.com/test/payments`}>
-              {' '}
-              Stripe dashboard.
-            </a>{' '}
-          </p>
-          <div className="sucessfull-grand-total">
-            <h4 className="grand-total">GRAND TOTAL</h4>
-            <h4 className="actual-total">{formatPrice(total_amount)}</h4>
-          </div>
-          <p>Redirecting to home page shortly</p>
-        </article>
-      ) : (
-        <form
-          id="payment-form"
-          action="https://formspree.io/f/xknlalqv"
-          method="POST"
-        >
+    <>
+      {succeeded && (
+        <section className="semi-overlay">
+          <article className="success-container">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="64"
+              height="64"
+              viewBox="0 0 64 64"
+              fill="none"
+            >
+              <circle cx="32" cy="32" r="32" fill="#D87D4A" />
+              <path
+                d="M20.7539 33.3328L27.5054 40.0843L43.3085 24.2812"
+                stroke="white"
+                stroke-width="4"
+              />
+            </svg>
+            <h4 className="thank-message">THANK YOU FOR YOUR ORDER</h4>
+            <p className="result-message">Payment succeeded</p>
+            <article className="grand-total-container">
+              <h4>GRAND TOTAL</h4>
+              <div className="grand-total-product-container">
+                {cart.map((item) => {
+                  return (
+                    <div className="product-total-details">
+                      <img className="img-total" src={item.image} />
+                      <div>
+                        <p>{item.name}</p>
+                        <p>Price: {formatPrice(item.price)}</p>
+                        <p>Qty: {item.amount}</p>
+                      </div>
+                    </div>
+                  )
+                })}
+              </div>
+              <p>Shipping Fee: {formatPrice(shipping_fee)}</p>
+              <p>FINAL PRICE: {formatPrice(finalPrice)}</p>
+            </article>
+            <p>
+              <strong>Invoice Will Be Emailed Shortly</strong>
+            </p>
+          </article>
+        </section>
+      )}
+      <div className={succeeded ? 'backgroundOpacity' : ''}>
+        <form id="payment-form" onSubmit={handleSubmit}>
           <h3>BILLING DETAILS</h3>
           <div className="grid-layout-container">
             <div>
@@ -165,8 +215,8 @@ const CheckoutForm = () => {
                 placeholder="Alexel Ward"
                 id="fullName"
                 name="fullName"
-                value={billing.fullName}
-                onChange={changeBilling}
+                value={customerName.fullName}
+                onChange={changeCustomerName}
                 required
               />
             </div>
@@ -177,8 +227,8 @@ const CheckoutForm = () => {
                 placeholder="alexi@mail.com"
                 id="email"
                 name="email"
-                value={billing.email}
-                onChange={changeBilling}
+                value={customerName.email}
+                onChange={changeCustomerName}
                 required
               />
             </div>
@@ -189,8 +239,8 @@ const CheckoutForm = () => {
                 placeholder="+1 202-555-0136"
                 id="phoneNumber"
                 name="phoneNumber"
-                value={billing.phoneNumber}
-                onChange={changeBilling}
+                value={customerName.phoneNumber}
+                onChange={changeCustomerName}
                 required
               />
             </div>
@@ -204,20 +254,8 @@ const CheckoutForm = () => {
                 type="text"
                 placeholder="1137 Williams Avenue"
                 id="address"
-                name="address"
-                value={billing.address}
-                onChange={changeBilling}
-                required
-              />
-            </div>
-            <div>
-              <label htmlFor="zipCode">ZIP Code</label>
-              <input
-                type="text"
-                placeholder="10001"
-                id="zipCode"
-                name="zipCode"
-                value={billing.zipCode}
+                name="line1"
+                value={billing.address.line1}
                 onChange={changeBilling}
                 required
               />
@@ -226,10 +264,34 @@ const CheckoutForm = () => {
               <label>City</label>
               <input
                 type="text"
-                placeholder="New York"
+                placeholder="Ottawa"
                 id="city"
                 name="city"
-                value={billing.city}
+                value={billing.address.city}
+                onChange={changeBilling}
+                required
+              />
+            </div>
+            <div>
+              <label>State</label>
+              <input
+                type="text"
+                placeholder="Ontario"
+                id="city"
+                name="state"
+                value={billing.address.state}
+                onChange={changeBilling}
+                required
+              />
+            </div>
+            <div>
+              <label htmlFor="zipCode">ZIP Code</label>
+              <input
+                type="text"
+                placeholder="X28 4C9"
+                id="zipCode"
+                name="postal_code"
+                value={billing.address.zipCode}
                 onChange={changeBilling}
                 required
               />
@@ -241,33 +303,29 @@ const CheckoutForm = () => {
                 placeholder="United State"
                 id="country"
                 name="country"
-                value={billing.country}
-                onChange={changeBilling}
+                value="Canada"
                 required
               />
             </div>
           </div>
           <article className="grand-total-container">
             <h4>GRAND TOTAL</h4>
-            <div style={{ display: 'none' }}>
-              {cart.map((item, index) => (
-                <input
-                  type="text"
-                  name={`Order ${index + 1}`}
-                  value={`${item.name} | amount: ${item.amount} | color: ${
-                    item.color
-                  } | price: ${formatPrice(item.price)}`}
-                />
-              ))}
-
-              <input
-                type="text"
-                name="Total Price"
-                value={formatPrice(total_amount)}
-              />
+            <div className="grand-total-product-container">
+              {cart.map((item, index) => {
+                return (
+                  <div key={index} className="product-total-details">
+                    <img className="img-total" src={item.image} />
+                    <div>
+                      <p>{item.name}</p>
+                      <p>Price: {formatPrice(item.price)}</p>
+                      <p>Qty: {item.amount}</p>
+                    </div>
+                  </div>
+                )
+              })}
             </div>
-            <p>{formatPrice(total_amount)}</p>
-            <p>Test Card Number: 4242 4242 4242 4242</p>
+            <p>Shipping Fee: {formatPrice(shipping_fee)}</p>
+            <p>FINAL PRICE: {formatPrice(finalPrice)}</p>
           </article>
 
           <CardElement
@@ -275,11 +333,7 @@ const CheckoutForm = () => {
             options={cardStyle}
             onChange={handleChange}
           />
-          <button
-            // disabled={processing || disabled || succeeded}
-            id="submit"
-            type="submit"
-          >
+          <button disabled={processing || disabled || succeeded} id="submit">
             <span id="button-text">
               {processing ? (
                 <div className="spinner" id="spinner"></div>
@@ -304,8 +358,8 @@ const CheckoutForm = () => {
             Refresh the page to pay again.
           </p>
         </form>
-      )}
-    </div>
+      </div>
+    </>
   )
 }
 
@@ -320,6 +374,32 @@ const StripeCheckout = () => {
 }
 
 const Wrapper = styled.section`
+  .backgroundOpacity {
+    opacity: 0.1;
+  }
+
+  .img-total {
+    width: 100px;
+  }
+
+  .product-total-details {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+    p {
+      margin-bottom: 5px;
+    }
+  }
+
+  .semi-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+
   form {
     width: 80vw;
     align-self: center;
@@ -522,10 +602,14 @@ const Wrapper = styled.section`
   }
   .success-container {
     padding: 50px;
-
     border-radius: 8px;
     background: #fff;
     border: 1px solid var(--actual-black);
+    position: fixed;
+    z-index: 1000;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 
     .thank-message {
       color: #000;
@@ -565,7 +649,8 @@ const Wrapper = styled.section`
   }
 
   @media (min-width: 768px) {
-    .grid-layout-container {
+    .grid-layout-container,
+    .grand-total-product-container {
       display: grid;
       grid-template-columns: 1fr 1fr;
       grid-column-gap: 18px;

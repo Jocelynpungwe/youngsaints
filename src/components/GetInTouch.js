@@ -15,32 +15,30 @@ const GetInTouch = () => {
           <p className="disc-header">
             Give us a call or Reach out to us via WhatsApp at
           </p>
-          <p>+123456789 Yvng Saints</p>
-          <p>+123456789 Grace</p>
-          <p>+123456789 Ray</p>
+          <p>+1(819)8330109 Yvng Saints</p>
+          <p>+1(819)2099508 Grace</p>
         </article>
         <article className="service">
           <span className="icon">{<BsEnvelope />}</span>
           <h4>Email</h4>
           <p className="disc-header">Feel free to contact us via email at:</p>
-          <p>YoungSaint@gmail.com</p>
-          <p>grace@gmail.com</p>
-          <p>Rofra@gmail.com</p>
+          <p>yvngsaintsgr@gmail.com</p>
+          <p>Rofraray@gmail.com</p>
         </article>
         <article className="service">
           <span className="icon">{<FaInstagram />}</span>
           <h4>Follow</h4>
-          <p>Yvng Saints Instagram</p>
+          <p>@yvng_saints</p>
           <a href="https://www.instagram.com/yvng_saints/">
             <img className="ig-image" src={instagramImage} alt="" />
           </a>
 
-          <p>Grace Instagram</p>
+          <p>@_gracie_1206</p>
           <a href="https://www.instagram.com/__gracie__1206/">
             <img className="ig-image" src={instagramImage} alt="" />
           </a>
 
-          <p>Ray Instagram</p>
+          <p>@its_la_ray</p>
           <a href="https://www.instagram.com/its_la_ray/">
             <img className="ig-image" src={instagramImage} alt="" />
           </a>

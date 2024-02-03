@@ -56,16 +56,16 @@ export const services = [
 export const data = [
   {
     id: 1,
-    images: [personHoodie, hoodie2, hoodie1, hoodieAll],
+    images: [hoodieAll, personHoodie, hoodie2, hoodie1],
     name: 'hoodies',
     price: 4500,
     category: 'hoodies',
     description:
       'YVNG Saint Company presents a divine fusion of faith and fashion with our exclusive line of religious-themed hoodies. Embrace a unique blend of spirituality and streetwear as our meticulously designed hoodies seamlessly integrate sacred symbols and powerful motifs, creating a tangible expression of your unwavering devotion.',
-    stock: 0,
+    stock: 2,
     colors: ['black'],
-    stars: 4,
-    reviews: 5,
+    stars: 4.5,
+    reviews: 23,
   },
   {
     id: 2,
@@ -75,26 +75,26 @@ export const data = [
     category: 'caps',
     description:
       'YVNG Saint Company brings forth a collection of religious-inspired caps that transcend fashion, merging timeless spirituality with contemporary style. Each cap is a testament to faith, adorned with sacred symbols and meaningful designs, allowing you to carry your beliefs with you wherever you go.',
-    stock: 0,
+    stock: 3,
     colors: ['black'],
     stars: 4,
-    reviews: 5,
+    reviews: 10,
   },
   {
     id: 3,
     images: [benny6, benny1, benny2, benny3, benny4, benny5],
     name: 'bennies',
-    price: 3500,
+    price: 300,
     category: 'bennies',
     description:
       'YVNG Saint Company introduces a divine touch to your winter essentials with our collection of religious-based beanies. Experience the warmth of faith as our beanies seamlessly blend religious symbols and meaningful motifs, creating a cozy yet powerful accessory for the devout.',
     stock: 10,
     colors: ['black', 'gray', 'orange', 'green'],
-    stars: 4,
-    reviews: 5,
+    stars: 4.4,
+    reviews: 15,
   },
 ]
 
-export const products_url = '/.netlify/functions/products'
+// export const products_url = '/.netlify/functions/products'
 
-export const single_product_url = `/.netlify/functions/single-product?id=`
+// export const single_product_url = `/.netlify/functions/single-product?id=`

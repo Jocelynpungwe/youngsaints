@@ -9,6 +9,8 @@ import PrivateRoute from './PrivateRoute'
 import AuthWrapper from './AuthWrapper'
 import ProductCategoryPage from './ProductCategoryPage'
 import ContactPage from './ContactPage'
+import SuccessPage from './SuccessPage'
+import CancelPage from './CancelPage'
 
 export {
   Home,
@@ -22,4 +24,6 @@ export {
   AuthWrapper,
   ProductCategoryPage,
   ContactPage,
+  SuccessPage,
+  CancelPage,
 }
