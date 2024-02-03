@@ -84,7 +84,7 @@ export const data = [
     id: 3,
     images: [benny6, benny1, benny2, benny3, benny4, benny5],
     name: 'bennies',
-    price: 300,
+    price: 100,
     category: 'bennies',
     description:
       'YVNG Saint Company introduces a divine touch to your winter essentials with our collection of religious-based beanies. Experience the warmth of faith as our beanies seamlessly blend religious symbols and meaningful motifs, creating a cozy yet powerful accessory for the devout.',

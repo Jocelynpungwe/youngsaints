@@ -6,7 +6,7 @@ import { FaTrash } from 'react-icons/fa'
 import { useCartContext } from '../context/cart_context'
 import { data } from '../utils/constants'
 
-const CartItem = ({ id, images, name, color, price, amount }) => {
+const CartItem = ({ id, name, color, price, amount }) => {
   const { removeItem, toggleAmount } = useCartContext()
 
   const newData = data.find((item) => item.id === Number(id[0]))
