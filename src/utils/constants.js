@@ -89,7 +89,7 @@ export const data = [
     description:
       'YVNG Saint Company introduces a divine touch to your winter essentials with our collection of religious-based beanies. Experience the warmth of faith as our beanies seamlessly blend religious symbols and meaningful motifs, creating a cozy yet powerful accessory for the devout.',
     stock: 10,
-    colors: ['black', 'gray', 'orange', 'green'],
+    colors: ['black', 'gray', 'darkorange', 'green'],
     stars: 4.4,
     reviews: 15,
   },

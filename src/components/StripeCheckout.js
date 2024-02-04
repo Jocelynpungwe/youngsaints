@@ -188,6 +188,10 @@ const CheckoutForm = () => {
                       <img className="img-total" src={item.image} />
                       <div>
                         <p className="product-total-name">{item.name}</p>
+                        <p className="color product-total-price-qty">
+                          color :
+                          <span style={{ background: item.color }} />
+                        </p>
                         <p className="product-total-price-qty">
                           Price: <span>{formatPrice(item.price)}</span>
                         </p>
@@ -326,6 +330,10 @@ const CheckoutForm = () => {
                       <img className="img-total" src={item.image} />
                       <div>
                         <p className="product-total-name">{item.name}</p>
+                        <p className="color product-total-price-qty">
+                          color :
+                          <span style={{ background: item.color }} />
+                        </p>
                         <p className="product-total-price-qty">
                           Price: <span>{formatPrice(item.price)}</span>
                         </p>
@@ -394,6 +402,21 @@ const Wrapper = styled.section`
     opacity: 0.1;
   }
 
+  .color {
+    text-transform: capitalize;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    span {
+      display: inline-block;
+      width: 0.5rem;
+      height: 0.5rem;
+      background: red;
+      margin-left: 0.5rem;
+      border-radius: var(--radius);
+    }
+  }
+
   .grand-total-container {
     .shipping-fee {
       font-size: 12px;
@@ -410,8 +433,8 @@ const Wrapper = styled.section`
   }
 
   .img-total {
-    width: 50px;
-    height: 50px;
+    width: 70px;
+    height: 70px;
     object-fit: cover;
   }
 
