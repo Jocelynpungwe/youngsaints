@@ -15,8 +15,8 @@ const GetInTouch = () => {
           <p className="disc-header">
             Give us a call or Reach out to us via WhatsApp at
           </p>
-          <p>+1(819)8330109 Yvng Saints</p>
-          <p>+1(819)2099508 Grace</p>
+          <p>+1 (819) 833 0109 Yvng Saints</p>
+          <p>+1 (819) 209 9508 Grace</p>
         </article>
         <article className="service">
           <span className="icon">{<BsEnvelope />}</span>
