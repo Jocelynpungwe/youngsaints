@@ -4,9 +4,13 @@ import hoodie1 from '../assets/young/product/product-1-b.JPG'
 import hoodie2 from '../assets/young/product/product-2-b.JPG'
 import hoodieAll from '../assets/young/product/product-hoodies-all.JPG'
 import personHoodie from '../assets/young/hoodie-1.JPG'
+
 import caps1 from '../assets/young/product/products-cap-a.JPG'
+import caps3 from '../assets/young/extra-caps-two.jpg'
+import caps2 from '../assets/young/extra-cap-one.JPG'
 import newImage2 from '../assets/young/product/product-bennie.JPG'
 
+import mainBenny from '../assets/young/main-bennie.JPG'
 import benny1 from '../assets/young/benny-1.JPG'
 import benny2 from '../assets/young/benny-2.JPG'
 import benny3 from '../assets/young/benny-3.JPG'
@@ -69,7 +73,7 @@ export const data = [
   },
   {
     id: 2,
-    images: [caps1],
+    images: [caps1, caps2, caps3],
     name: 'caps',
     price: 2500,
     category: 'caps',
@@ -82,10 +86,10 @@ export const data = [
   },
   {
     id: 3,
-    images: [benny6, benny3, benny1, benny5, benny2, benny4],
-    name: 'bennies',
+    images: [mainBenny, benny3, benny1, benny5, benny2, benny4],
+    name: 'beanies',
     price: 3500,
-    category: 'bennies',
+    category: 'beanies',
     description:
       'YVNG Saint Company introduces a divine touch to your winter essentials with our collection of religious-based beanies. Experience the warmth of faith as our beanies seamlessly blend religious symbols and meaningful motifs, creating a cozy yet powerful accessory for the devout.',
     stock: 10,
